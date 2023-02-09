@@ -1,0 +1,32 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "staticSites_StaticWebApp_name": {
+            "defaultValue": "StaticWebApp",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Web/staticSites",
+            "apiVersion": "2022-03-01",
+            "name": "[parameters('staticSites_StaticWebApp_name')]",
+            "location": "West Europe",
+            "tags": {
+                "chkp-lz-create-date": "2023-02-09T12:10:10.2400128Z"
+            },
+            "sku": {
+                "name": "Free",
+                "tier": "Free"
+            },
+            "properties": {
+                "stagingEnvironmentPolicy": "Enabled",
+                "allowConfigFileUpdates": true,
+                "provider": "None",
+                "enterpriseGradeCdnStatus": "Disabled"
+            }
+        }
+    ]
+}
